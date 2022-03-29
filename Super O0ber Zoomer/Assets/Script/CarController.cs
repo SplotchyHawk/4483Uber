@@ -26,7 +26,7 @@ public class CarController : MonoBehaviour
         HandleMotor();
         HandleSteering();
         UpdateWheels();
-       
+
     }
 
     private void GetInput()
@@ -78,5 +78,32 @@ public class CarController : MonoBehaviour
         wheelCollider.GetWorldPose(out pos, out rot);
         wheelTransform.rotation = rot;
         wheelTransform.position = pos;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Minimize"))
+        {
+            Vector3 scaleChange = new Vector3(0.5f, 0.5f, 0.5f);
+
+            this.gameObject.transform.localScale = scaleChange;
+            Destroy(other.gameObject);
+            StartCoroutine(WaitFor8sec());
+        }
+
+        //else if (other.gameObject.layer == LayerMask.NameToLayer("SpeedBoost"))
+        //{
+        //motorForce = motorForce * 900000000000000000;
+        //StartCoroutine(WaitFor2sec());
+        //motorForce = 4000000f;
+        //Destroy(other.gameObject);
+        //}
+    }
+
+    IEnumerator WaitFor8sec()
+    {
+        yield return new WaitForSeconds(8);
+        Vector3 scaleChange = new Vector3(1f, 1f, 1f);
+        this.gameObject.transform.localScale = scaleChange;
     }
 }
