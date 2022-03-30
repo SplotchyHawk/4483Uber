@@ -5,55 +5,38 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
-    public GameObject pauseMenu;
+    [SerializeField] GameObject pauseMenu;
 
-    // Update is called once per frame
-    void Update()
+    public void Pause()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (GameIsPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }
+        pauseMenu.SetActive(true);
+        Debug.Log("PAUSED");
+        //timerController.EndTimer();
+        Time.timeScale = 0f;
     }
 
     public void Resume()
     {
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1f;
-        GameIsPaused = false;
-    }
-
-    void Pause()
-    {
         pauseMenu.SetActive(true);
-        Time.timeScale = 0f;
-        GameIsPaused = true;
+        Debug.Log("RESUMED");
+        Time.timeScale = 1f;
+        //timerController.UnpauseTimer();
+        pauseMenu.SetActive(false);
+
     }
 
-    public void LoadMenu()
+    public void Home(int sceneID)
     {
+        Debug.Log("HOME");
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(sceneID);
     }
 
     public void Restart()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+        Debug.Log("RESTART");
 
-    public void QuitGame()
-    {
-        //To Quit
-        Debug.Log("Game Quit");
-        Application.Quit();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
     }
 }

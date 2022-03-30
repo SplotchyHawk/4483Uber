@@ -5,12 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    
+    void Start()
+    {
+        TimerController timerController;
+    }
+
     void Update()
     {
         if (Customer.dropoffCounter > 9)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene(2);
         }
     }
 }
