@@ -38,5 +38,6 @@ public class PauseMenu : MonoBehaviour
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1f;
+        Customer.dropoffCounter = 0;
     }
 }
