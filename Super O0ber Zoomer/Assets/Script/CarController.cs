@@ -20,6 +20,15 @@ public class CarController : MonoBehaviour
 
     [SerializeField] private Transform frontLeftWheelTransform, frontRightWheelTransform, backLeftWheelTransform, backRightWheelTransform;
 
+    Rigidbody m_Rigidbody;
+    public float m_Thrust = 10000000000f;
+
+    void Start()
+    {
+        //Fetch the Rigidbody from the GameObject with this script attached
+        m_Rigidbody = GetComponent<Rigidbody>();
+    }
+
     private void FixedUpdate()
     {
         GetInput();
@@ -87,17 +96,19 @@ public class CarController : MonoBehaviour
             Vector3 scaleChange = new Vector3(0.5f, 0.5f, 0.5f);
 
             this.gameObject.transform.localScale = scaleChange;
+
             Destroy(other.gameObject);
+
             StartCoroutine(WaitFor8sec());
         }
 
-        //else if (other.gameObject.layer == LayerMask.NameToLayer("SpeedBoost"))
-        //{
-        //motorForce = motorForce * 900000000000000000;
-        //StartCoroutine(WaitFor2sec());
-        //motorForce = 4000000f;
-        //Destroy(other.gameObject);
-        //}
+        else if (other.gameObject.layer == LayerMask.NameToLayer("SpeedBoost"))
+        {
+            Destroy(other.gameObject);
+
+            m_Rigidbody.AddForce(0, 0, m_Thrust, ForceMode.Impulse);
+
+        }
     }
 
     IEnumerator WaitFor8sec()
