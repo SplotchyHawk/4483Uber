@@ -15,7 +15,7 @@ public class TimerController : MonoBehaviour
     private bool timerGoing;
 
     private float elapsedTime;
-    private float timeRemaining = 90.0f;
+    private float timeRemaining = 300.0f;
     private string timeRemainingStr;
 
     private void Awake()
@@ -25,7 +25,7 @@ public class TimerController : MonoBehaviour
 
     private void Start()
     {
-        timeCounter.text = "Time: 01:30.00";
+        timeCounter.text = "Time: 05:00.00";
         timerGoing = false;
         BeginTimer();
     }
@@ -73,6 +73,6 @@ public class TimerController : MonoBehaviour
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
         float milliSeconds = (timeToDisplay % 1) * 1000;
-        timeCounter.text = string.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, milliSeconds);
+        timeCounter.text = string.Format("Time: {0:00}:{1:00}:{2:000}", minutes, seconds, milliSeconds);
     }
 }

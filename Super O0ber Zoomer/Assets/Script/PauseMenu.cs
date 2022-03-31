@@ -30,6 +30,7 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("HOME");
         Time.timeScale = 1f;
         SceneManager.LoadScene(sceneID);
+        Customer.dropoffCounter = 0;
     }
 
     public void Restart()
