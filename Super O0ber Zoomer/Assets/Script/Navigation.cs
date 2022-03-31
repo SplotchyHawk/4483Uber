@@ -14,6 +14,7 @@ public class Navigation : MonoBehaviour
 
         for (int i = 0; i < spawnPoints.Length; i++)
         {
+            
             if (random == i)
             {
                 Person.position = spawnPoints[i].position;
