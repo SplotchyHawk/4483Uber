@@ -7,11 +7,11 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
-    guid: 24b6cc35187422f48b475f23fb749391
+    guid: 6016fe32970751a42b976227324e2f09
   - enabled: 1
     path: Assets/Scenes/MainLevelWithTextBox.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/EndScreen.unity
-    guid: f60161b2f5df8c54c85e4a9e515b21db
+    guid: 57df50002cfa1b24285cd8a2b4715e9a
   m_configObjects: {}
