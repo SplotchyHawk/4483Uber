@@ -13,9 +13,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Customer.dropoffCounter > 9)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
+        
     }
 }
