@@ -20,6 +20,7 @@ public class ButtomProperties : MonoBehaviour
 
     public void StartGame()
     {
+        Customer.dropoffCounter = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

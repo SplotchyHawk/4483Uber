@@ -5,55 +5,44 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
-    public GameObject pauseMenu;
+    [SerializeField] GameObject pauseMenu;
 
-    // Update is called once per frame
-    void Update()
+    public void Pause()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (GameIsPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }
+        Debug.Log("PAUSED");
+
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     public void Resume()
     {
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1f;
-        GameIsPaused = false;
-    }
+        Debug.Log("RESUMED");
 
-    void Pause()
-    {
         pauseMenu.SetActive(true);
-        Time.timeScale = 0f;
-        GameIsPaused = true;
+        Time.timeScale = 1f;
+        pauseMenu.SetActive(false);
+
     }
 
-    public void LoadMenu()
+    public void Home(int sceneID)
     {
+        Debug.Log("HOME");
+
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - SceneManager.GetActiveScene().buildIndex);
+        Customer.dropoffCounter = 0;
+        Customer.mesh = true;
+        SceneManager.LoadScene(sceneID);
+        
     }
 
     public void Restart()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+        Debug.Log("RESTART");
 
-    public void QuitGame()
-    {
-        //To Quit
-        Debug.Log("Game Quit");
-        Application.Quit();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
+        Customer.mesh = true;
+        Customer.dropoffCounter = 0;
     }
 }
