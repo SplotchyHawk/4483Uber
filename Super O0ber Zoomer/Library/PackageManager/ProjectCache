@@ -98,19 +98,6 @@ m_PackageAssets:
         - 2.1.0-preview.5
         - 2.1.0-preview.6
         compatible:
-        - 1.13.5
-        - 1.14.1
-        - 1.14.4
-        - 1.14.7
-        - 1.14.9
-        - 1.14.12
-        - 1.14.13
-        - 1.14.15
-        - 1.15.1
-        - 1.15.4
-        - 1.15.7
-        - 1.15.9
-        - 1.15.12
         - 1.15.13
         - 1.15.15
         - 2.0.0-preview.6
@@ -123,7 +110,7 @@ m_PackageAssets:
         - 2.1.0-preview.3
         - 2.1.0-preview.5
         - 2.1.0-preview.6
-        verified: 1.13.5
+        verified: 1.15.15
       dependencies:
       - name: com.unity.services.core
         version: 1.0.1
@@ -507,8 +494,6 @@ m_PackageAssets:
         - 2.0.1-pre.12
         - 2.0.1-pre.18
         compatible:
-        - 1.1.29
-        - 1.1.30
         - 1.1.31
         - 2.0.1-pre.12
         - 2.0.1-pre.18
@@ -2863,4 +2848,4 @@ m_PackageAssets:
     m_LocalFileStatus: []
 m_ProjectPath: /Users/matthewstewart/Documents/4th Year CS/CS4474/4483Uber/Super
   O0ber Zoomer/Packages
-m_EditorVersion: 2020.3.22f1 (e1a7f79fd887)
+m_EditorVersion: 2020.3.32f1 (12f8b0834f07)
